@@ -2,7 +2,7 @@
 
 # Complete Setup & User Guide
 
-> **Meta Quest 3 · Shap-E · Whisper · Unity 6.0 LTS**
+> **Meta Quest 3 · Shap-E · Whisper · Unity 6000.2.10f1**
 >
 > Clone the repository and then implement the following steps.
 
@@ -206,10 +206,10 @@ https://unity.com/download
 
 Install Unity Hub. When it opens, create a free Unity account if you don't already have one.
 
-### B2. Install Unity 2022.3 LTS
+### B2. Install Unity 6000.2.10f1
 
 1. In Unity Hub, click **Installs** in the left sidebar, then **Install Editor** (top right).
-2. Find **Unity 6.0 (LTS)** in the list — the LTS badge means Long-Term Support. Click **Install**.
+2. Find **Unity 6000.2.10f1** in the list — the LTS badge means Long-Term Support. Click **Install**.
 3. In the modules screen, make sure these are checked:
    - ✅ Android Build Support
    - ✅ Android SDK & NDK Tools
@@ -586,7 +586,7 @@ On the **very first run**, Shap-E downloads ~1 GB of model weights and Whisper d
 
 - Check **Window → General → Console** in Unity for the full error message.
 - Go to **Edit → Preferences → External Tools** and confirm JDK, SDK, and NDK paths are set.
-- In Unity Hub, click the three-dot menu on your 2022.3 install → **Add Modules** → confirm Android Build Support, Android SDK & NDK Tools, and OpenJDK are installed.
+- In Unity Hub, click the three-dot menu on your 6000.2 install → **Add Modules** → confirm Android Build Support, Android SDK & NDK Tools, and OpenJDK are installed.
 
 ### Objects appear underground or at wrong scale
 
@@ -662,4 +662,4 @@ Scene
 
 ---
 
-*AR Object Generator — Meta Quest 3 + Shap-E + Whisper + Unity 2022 LTS*
+*AR Object Generator — Meta Quest 3 + Shap-E + Whisper + Unity 6000.2*
