@@ -4,7 +4,7 @@
 
 > **Meta Quest 3 · Shap-E · Whisper · Unity 6.0 LTS**
 >
-> This guide walks you through everything — from zero to a working AR experience — with no prior technical knowledge assumed.
+> Clone the repository and then implement the following steps.
 
 ---
 
@@ -113,7 +113,7 @@ brew install ffmpeg
 ### A4. Create the Server Folder
 
 ```bash
-mkdir -p ~/Desktop/vr-gen
+mkdir -p ~/YourFolder/vr-gen
 ```
 
 ### A5. Copy server.py into the Folder
@@ -127,7 +127,7 @@ You should now have: `~/Desktop/vr-gen/server.py`
 Navigate to the folder and install all required libraries. Each command may take several minutes:
 
 ```bash
-cd ~/Desktop/vr-gen
+cd ~/YourFolder/vr-gen
 ```
 
 ```bash
@@ -146,7 +146,7 @@ pip3.11 install git+https://github.com/openai/shap-e.git --break-system-packages
 Run the server. On first run it downloads the AI models (~1 GB for Shap-E, ~150 MB for Whisper). This takes 10–20 minutes:
 
 ```bash
-cd ~/Desktop/vr-gen && python3.11 server.py
+cd ~/YourFolder/vr-gen && python3.11 server.py
 ```
 
 The server is ready when you see:
@@ -209,15 +209,12 @@ Install Unity Hub. When it opens, create a free Unity account if you don't alrea
 ### B2. Install Unity 2022.3 LTS
 
 1. In Unity Hub, click **Installs** in the left sidebar, then **Install Editor** (top right).
-2. Find **Unity 2022.3 (LTS)** in the list — the LTS badge means Long-Term Support. Click **Install**.
+2. Find **Unity 6.0 (LTS)** in the list — the LTS badge means Long-Term Support. Click **Install**.
 3. In the modules screen, make sure these are checked:
    - ✅ Android Build Support
    - ✅ Android SDK & NDK Tools
    - ✅ OpenJDK
 4. Click **Install**. This downloads ~3 GB and takes 10–20 minutes.
-
-> [!WARNING]
-> Do not use Unity 6 or Unity 2023. Meta's XR SDK has the most reliable support with Unity 2022.3 LTS.
 
 ### B3. Create a New Unity Project
 
@@ -302,18 +299,25 @@ GLTFast enables Unity to load `.glb` 3D files (Shap-E's output format) at runtim
 In the **Hierarchy** window (top-left), right-click **Main Camera** → **Delete**. The Meta SDK provides its own camera.
 
 #### Add the OVR Camera Rig
-
+##### Option A
 1. In the **Project** window, search for `OVRCameraRig`.
 2. Drag the **OVRCameraRig** prefab into the Hierarchy.
 3. Select it. In the Inspector, find the **OVR Camera Rig** component. Set **Tracking Origin Type** to **Floor Level**.
 
+##### Option B
+1. Go to Meta XR Tools -> Building Blocks -> Camera Rig. 
+
 #### Enable Passthrough AR
 
+##### Option A
 1. With **OVRCameraRig** selected, click **Add Component** → search `OVRPassthroughLayer` → add it.
 2. In the component, tick **Is Underlay**.
 3. Expand **OVRCameraRig → TrackingSpace → CenterEyeAnchor** in the Hierarchy.
 4. Select **CenterEyeAnchor**. In the **Camera** component, set **Background Type** to **Solid Color**.
 5. Click the colour swatch and set all four sliders (R, G, B, A) to **0**. This makes the camera background fully transparent so passthrough shows through.
+
+##### Option B
+1. Go to Meta XR Tools -> Building Blocks -> Passthrough. 
 
 #### Create the Gen Manager
 
