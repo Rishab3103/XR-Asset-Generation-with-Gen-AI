@@ -58,15 +58,6 @@ The system has two components:
 - Meta XR All-in-One SDK (free, from Unity Asset Store)
 - GLTFast (free Unity package for loading 3D files at runtime)
 
-### Estimated Time
-
-| Task | Estimated Time |
-|------|---------------|
-| Mac server setup (includes model download) | 20–40 minutes |
-| Unity project setup | 30–60 minutes |
-| Quest configuration and first build | 15–30 minutes |
-| Each object generation | 5–10 minutes per object |
-
 ---
 
 ## Part A: Mac Server Setup
@@ -83,21 +74,21 @@ Homebrew is a package manager for macOS. Open **Terminal** (press `Command + Spa
 
 Press Enter. Type your Mac password when prompted (characters won't appear — this is normal). Follow any on-screen instructions. This takes about 5 minutes.
 
-### A2. Install Python 3.11
+### A2. Install Python 3.14
 
-Shap-E requires Python 3.10 or 3.11. Install it using Homebrew:
+Shap-E requires Python. I tested it with Python 3.11 and 3.14. Install it using Homebrew:
 
 ```bash
-brew install python@3.11
+brew install python@3.14
 ```
 
 Verify the installation:
 
 ```bash
-python3.11 --version
+python3.14 --version
 ```
 
-You should see: `Python 3.11.x`
+You should see: `Python 3.14.x`
 
 ### A3. Install ffmpeg
 
@@ -110,43 +101,40 @@ brew install ffmpeg
 > [!TIP]
 > ffmpeg is about 200 MB. On a slow connection this may take a few minutes.
 
-### A4. Create the Server Folder
+### A4. Install Minforge
 
 ```bash
-mkdir -p ~/YourFolder/vr-gen
+brew install miniforge
 ```
 
-### A5. Copy server.py into the Folder
+### A5. Create a Conda Environment
 
-Locate `server.py` in your project output folder. In Finder, drag it into the `vr-gen` folder on your Desktop.
+```bash
+conda create -n somename python=3.14
+conda activate somename
+```
 
-You should now have: `~/Desktop/vr-gen/server.py`
+
+You should now have: `(somename) ➜  vr-gen`
 
 ### A6. Install Python Libraries
 
 Navigate to the folder and install all required libraries. Each command may take several minutes:
 
 ```bash
-cd ~/YourFolder/vr-gen
+pip install -r requirements.txt
 ```
 
 ```bash
-pip3.11 install fastapi uvicorn openai-whisper python-multipart trimesh numpy torch --break-system-packages
+pip install git+https://github.com/openai/shap-e.git --break-system-packages
 ```
-
-```bash
-pip3.11 install git+https://github.com/openai/shap-e.git --break-system-packages
-```
-
-> [!WARNING]
-> Always use `pip3.11`, not `pip` or `pip3`. Using the wrong pip installs libraries for a different Python version, causing cryptic import errors when the server runs.
 
 ### A7. Start the Server for the First Time
 
-Run the server. On first run it downloads the AI models (~1 GB for Shap-E, ~150 MB for Whisper). This takes 10–20 minutes:
+Run the server. On first run it downloads the AI models (~1 GB for Shap-E, ~150 MB for Whisper).
 
 ```bash
-cd ~/YourFolder/vr-gen && python3.11 server.py
+python server.py
 ```
 
 The server is ready when you see:
