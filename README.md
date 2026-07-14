@@ -51,7 +51,7 @@ The system has two components:
 ### Software (installed step-by-step in this guide)
 
 - Homebrew — Mac package manager
-- Python 3.11 — required for Shap-E compatibility
+- Python 3.11 or above — required for Shap-E compatibility
 - ffmpeg — required for Whisper audio decoding
 - Python libraries: FastAPI, Uvicorn, Whisper, Shap-E, Trimesh, PyTorch
 - Unity Hub and Unity 6.0 LTS
@@ -437,7 +437,7 @@ To launch without rebuilding:
 Before putting on your Quest, always start the Mac server first:
 
 ```bash
-cd ~/Desktop/vr-gen && python3.11 server.py
+cd ~/Desktop/vr-gen && python server.py
 ```
 
 Wait until Terminal shows:
@@ -551,8 +551,7 @@ Hold [Right Trigger] to speak and generate
 
 ### Server crashes with: "ModuleNotFoundError"
 
-- Re-run both install commands from Step A6 using `pip3.11` exactly as written.
-- Confirm you are in the correct folder: `cd ~/Desktop/vr-gen` before running the server.
+- Confirm you are in the correct folder: `cd ~/vr-gen` before running the server.
 
 ### Server takes a very long time to start
 
@@ -628,7 +627,7 @@ Scene
 
 ### Session Start Checklist
 
-- [ ] Mac server running: `cd ~/Desktop/vr-gen && python3.11 server.py`
+- [ ] Mac server running: `cd ~/Desktop/vr-gen && python server.py`
 - [ ] Terminal shows: `Uvicorn running on http://0.0.0.0:8765`
 - [ ] Mac and Quest on the **same Wi-Fi network**
 - [ ] App launched from App Library → Unknown Sources
