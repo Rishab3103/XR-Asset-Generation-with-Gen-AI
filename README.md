@@ -437,7 +437,7 @@ To launch without rebuilding:
 Before putting on your Quest, always start the Mac server first:
 
 ```bash
-cd ~/Desktop/vr-gen && python server.py
+cd ~/../vr-gen && python server.py
 ```
 
 Wait until Terminal shows:
@@ -627,7 +627,7 @@ Scene
 
 ### Session Start Checklist
 
-- [ ] Mac server running: `cd ~/Desktop/vr-gen && python server.py`
+- [ ] Mac server running: `cd ~/../vr-gen && python server.py`
 - [ ] Terminal shows: `Uvicorn running on http://0.0.0.0:8765`
 - [ ] Mac and Quest on the **same Wi-Fi network**
 - [ ] App launched from App Library → Unknown Sources
